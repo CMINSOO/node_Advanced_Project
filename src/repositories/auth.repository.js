@@ -10,4 +10,21 @@ export class AuthRepository {
       data: { email, password, name },
     });
   };
+
+  findUser = async (email) => {
+    const user = await prisma.user.findUnique({
+      where: { email },
+    });
+    const payload = { id: +user.id };
+    return payload;
+  };
+
+  definePayloadUser = async (id) => {
+    const user = await prisma.user.findUnique({
+      where: { id: +id },
+      omit: { password: true },
+    });
+    console.log(id);
+    return user;
+  };
 }

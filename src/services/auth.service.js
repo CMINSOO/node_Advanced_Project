@@ -25,7 +25,26 @@ export class AuthsService {
       userId: createUser.userId,
       email: createUser.email,
       name: createUser.name,
-      createAt: createUser.createAt,
+      createAt: createUser.createdAt,
     };
+  };
+
+  comparePassword = async (email, password) => {
+    const user = await this.authRepository.getUser(email);
+    if (!user) {
+      return false;
+    }
+    const isPasswordMatched = bcrypt.compareSync(password, user.password);
+    return isPasswordMatched;
+  };
+
+  findUser = async (email) => {
+    const payload = this.authRepository.findUser(email);
+    return payload;
+  };
+
+  definePayloadUser = async (id) => {
+    const user = await this.authRepository.definePayloadUser(id);
+    return user;
   };
 }
