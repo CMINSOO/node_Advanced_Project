@@ -62,7 +62,7 @@ npm run dev
 
 # API 명세서
 
-https://modolee.notion.site/78aef426bed046338ee76802132e847c
+(https://secretive-uranium-993.notion.site/75d749b009ea49b59e4079a68dfa56da?v=19779d4904224a838e8d76c8c133a18b&pvs=4)
 
 # ERD
 
